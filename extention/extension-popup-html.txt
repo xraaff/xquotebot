@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Reply Bridge</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; width: 360px; padding: 14px; background: #0f1419; color: #e7e9ea; }
+        h2 { margin: 0 0 4px 0; font-size: 16px; color: #1DA1F2; }
+        .info { color: #71767b; font-size: 12px; margin: 4px 0 10px; line-height: 1.4; }
+        input, button { box-sizing: border-box; }
+        input[type="text"] { width: 100%; padding: 8px 10px; border: 1px solid #2f3336; background: #181818; color: #e7e9ea; border-radius: 6px; font-size: 13px; }
+        button { background: #1DA1F2; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px; margin-top: 8px; width: 100%; }
+        button:hover { background: #1a91da; }
+        .row { display: flex; gap: 8px; }
+        .row button { flex: 1; margin-top: 0; }
+        .status { margin-top: 10px; padding: 10px; border-radius: 6px; font-size: 12px; background: #181818; border: 1px solid #2f3336; }
+        .ok { color: #00ba7c; }
+        .err { color: #f4212e; }
+        code { background: #181818; padding: 1px 4px; border-radius: 3px; font-size: 11px; }
+        ol { padding-left: 20px; color: #71767b; font-size: 12px; line-height: 1.5; }
+        ol b { color: #e7e9ea; }
+    </style>
+</head>
+<body>
+    <h2>Quote Reply Bridge</h2>
+    <div class="info">Connect this extension to your deployed bridge (Railway/Render/VPS).</div>
+
+    <div class="info" style="margin-top:8px"><b>Bridge URL</b> — без слеша в конце</div>
+    <input type="text" id="bridgeUrl" placeholder="https://bridge-xxx.up.railway.app">
+
+    <div class="info" style="margin-top:8px"><b>Bridge Token</b> — из переменной BRIDGE_TOKEN</div>
+    <div class="row">
+        <input type="text" id="bridgeToken" placeholder="paste token from bridge console/logs">
+    </div>
+
+    <div class="row">
+        <button id="saveBtn">Save</button>
+        <button id="testBtn" style="background:#2f3336">Test</button>
+    </div>
+
+    <div class="info" style="margin-top:12px"><b>Usage:</b></div>
+    <ol>
+        <li><b>Stay on x.com</b> with this tab open.</li>
+        <li>Send x.com URLs of quote tweets to your <b>Telegram bot</b>.</li>
+        <li>Replies get posted automatically in this Chrome.</li>
+        <li>Number of bots per hour/day is limited for safety.</li>
+    </ol>
+
+    <div class="status" id="status">not configured</div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
